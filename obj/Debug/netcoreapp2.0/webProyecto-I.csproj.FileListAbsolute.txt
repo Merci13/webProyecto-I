@@ -1,0 +1,10 @@
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\bin\Debug\netcoreapp2.0\webProyecto-I.deps.json
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\bin\Debug\netcoreapp2.0\webProyecto-I.runtimeconfig.json
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\bin\Debug\netcoreapp2.0\webProyecto-I.runtimeconfig.dev.json
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\bin\Debug\netcoreapp2.0\webProyecto-I.dll
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\bin\Debug\netcoreapp2.0\webProyecto-I.pdb
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\obj\Debug\netcoreapp2.0\webProyecto-I.csproj.CoreCompileInputs.cache
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\obj\Debug\netcoreapp2.0\webProyecto-I.AssemblyInfoInputs.cache
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\obj\Debug\netcoreapp2.0\webProyecto-I.AssemblyInfo.cs
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\obj\Debug\netcoreapp2.0\webProyecto-I.dll
+C:\Users\Jorge\Documents\GitHub\webProyecto-I\obj\Debug\netcoreapp2.0\webProyecto-I.pdb
