@@ -1,0 +1,20 @@
+@model IEnumerable<Proyecto.Models.Registrar>
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+<form asp-action="Login">
+    <p>
+        <input type="text" name="Nombre">
+         <input type="text" name="Password">
+    </p>
+    <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+</form>
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

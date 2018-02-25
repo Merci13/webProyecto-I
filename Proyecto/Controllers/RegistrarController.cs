@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Proyecto.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace Proyecto.Controllers
 {
@@ -148,5 +149,41 @@ namespace Proyecto.Controllers
         {
             return _context.Registrar.Any(e => e.ID == id);
         }
-    }
-}
+   
+        public IActionResult Login()
+        {
+            
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> Login([Bind("nombre,password")] Registrar registrar)
+        {
+
+            var user = await _context.Registrar
+               .SingleOrDefaultAsync(m => m.Nombre == registrar.Nombre && m.Password == registrar.Password);
+
+            if (user != null)
+            {
+
+              HttpContext.Session.SetString("User",user.ToString());
+  
+
+              ViewBag.message="Bien lo logro";
+                    
+              return RedirectToAction("Create");
+
+            }
+            else
+            {
+                ModelState.AddModelError("", "El Usuario o la contraseña son erroneas");
+                  return RedirectToAction("Index");
+            }
+            return View();
+          
+
+        }
+
+
+ }
+
+}//fin del name espace

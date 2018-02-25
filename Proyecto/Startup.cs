@@ -24,8 +24,11 @@ namespace Proyecto
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-               services.AddDbContext<RegistrarContext>(options =>
+            services.AddMemoryCache();
+            services.AddSession();
+            services.AddDbContext<RegistrarContext>(options =>
             options.UseSqlite("Data Source=ProyectoUno.db"));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
