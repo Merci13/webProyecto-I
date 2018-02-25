@@ -10,5 +10,10 @@ namespace Proyecto.Models
         }
 
         public DbSet<Proyecto.Models.Registrar> Registrar { get; set; }
+
+        public DbSet<Clientes>Clientes{get;set;}
+
+
+
     }
 }
