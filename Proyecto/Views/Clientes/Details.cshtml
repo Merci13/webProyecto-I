@@ -1,7 +1,17 @@
-@model Proyecto.Models.Clientes
+@model ProyectoWeb.Models.Clientes
 
 @{
     ViewData["Title"] = "Details";
+        Layout = "_LogeadoAdmin";
+@*
+validacion de la session, si es administrador, se aplica el layout correspondiente
+    if (session=="admin")
+    {
+        Layout = "_LogeadoAdmin";
+    }else{
+        Layout = "_LogeadoUsuario";
+    }
+*@
 }
 
 <h2>Details</h2>
@@ -29,22 +39,22 @@
             @Html.DisplayFor(model => model.PaginaWeb)
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Telefono)
+            @Html.DisplayNameFor(model => model.DireccionFisica)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Telefono)
+            @Html.DisplayFor(model => model.DireccionFisica)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NúmerodeTelefono)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NúmerodeTelefono)
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Sector)
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Sector)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.DireccionFisica)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.DireccionFisica)
         </dd>
     </dl>
 </div>

@@ -1,6 +1,6 @@
 using System;
 
-namespace Proyecto.Models
+namespace ProyectoWeb.Models
 {
     public class ErrorViewModel
     {

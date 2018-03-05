@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Proyecto.Models;
+using ProyectoWeb.Models;
 
-namespace Proyecto.Controllers
+namespace ProyectoWeb.Controllers
 {
     public class ClientesController : Controller
     {
-        private readonly RegistrarContext _context;
+        private readonly ModeloContext _context;
 
-        public ClientesController(RegistrarContext context)
+        public ClientesController(ModeloContext context)
         {
             _context = context;
         }
@@ -21,7 +21,7 @@ namespace Proyecto.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clientes.ToListAsync());
+            return View(await _context.cliente.ToListAsync());
         }
 
         // GET: Clientes/Details/5
@@ -32,7 +32,7 @@ namespace Proyecto.Controllers
                 return NotFound();
             }
 
-            var clientes = await _context.Clientes
+            var clientes = await _context.cliente
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (clientes == null)
             {
@@ -53,7 +53,7 @@ namespace Proyecto.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Nombre,CedulaJuridica,PaginaWeb,Telefono,Sector,DireccionFisica")] Clientes clientes)
+        public async Task<IActionResult> Create([Bind("ID,Nombre,CedulaJuridica,PaginaWeb,DireccionFisica,NúmerodeTelefono,Sector")] Clientes clientes)
         {
             if (ModelState.IsValid)
             {
@@ -72,7 +72,7 @@ namespace Proyecto.Controllers
                 return NotFound();
             }
 
-            var clientes = await _context.Clientes.SingleOrDefaultAsync(m => m.ID == id);
+            var clientes = await _context.cliente.SingleOrDefaultAsync(m => m.ID == id);
             if (clientes == null)
             {
                 return NotFound();
@@ -85,7 +85,7 @@ namespace Proyecto.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Nombre,CedulaJuridica,PaginaWeb,Telefono,Sector,DireccionFisica")] Clientes clientes)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Nombre,CedulaJuridica,PaginaWeb,DireccionFisica,NúmerodeTelefono,Sector")] Clientes clientes)
         {
             if (id != clientes.ID)
             {
@@ -123,7 +123,7 @@ namespace Proyecto.Controllers
                 return NotFound();
             }
 
-            var clientes = await _context.Clientes
+            var clientes = await _context.cliente
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (clientes == null)
             {
@@ -138,15 +138,15 @@ namespace Proyecto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var clientes = await _context.Clientes.SingleOrDefaultAsync(m => m.ID == id);
-            _context.Clientes.Remove(clientes);
+            var clientes = await _context.cliente.SingleOrDefaultAsync(m => m.ID == id);
+            _context.cliente.Remove(clientes);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ClientesExists(int id)
         {
-            return _context.Clientes.Any(e => e.ID == id);
+            return _context.cliente.Any(e => e.ID == id);
         }
     }
 }

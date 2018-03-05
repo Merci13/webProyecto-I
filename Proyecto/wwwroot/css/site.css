@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    
 }
 
 /* Wrapping element */
@@ -33,3 +34,20 @@
         display: none;
     }
 }
+footer
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+background-color: #2d2d2d;
+color: #ffffff;
+}
+
+form{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+

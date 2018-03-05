@@ -1,0 +1,23 @@
+@model IEnumerable<ProyectoWeb.Models.Usuarios>
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_MiLayout";
+}
+
+<h2>Login</h2>
+
+<form asp-controller="Usuarios" asp-action="Login">
+
+    <div class="form-group">
+    <p>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="NicName" id="nombre">
+        <label for="contraseña">Contraseña</label>
+        <input type="text" name="Password" id="contraseña">
+    </p>
+    </div>
+    <div class="form-group">
+                <input type="submit" value="Login" class="btn btn-default" />
+     </div>
+</form>

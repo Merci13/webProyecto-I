@@ -1,7 +1,17 @@
-@model IEnumerable<Proyecto.Models.Clientes>
+@model IEnumerable<ProyectoWeb.Models.Clientes>
 
 @{
     ViewData["Title"] = "Index";
+        Layout = "_LogeadoAdmin";
+@*
+validacion de la session, si es administrador, se aplica el layout correspondiente
+    if (session=="admin")
+    {
+        Layout = "_LogeadoAdmin";
+    }else{
+        Layout = "_LogeadoUsuario";
+    }
+*@
 }
 
 <h2>Index</h2>
@@ -22,13 +32,13 @@
                     @Html.DisplayNameFor(model => model.PaginaWeb)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Telefono)
+                    @Html.DisplayNameFor(model => model.DireccionFisica)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NúmerodeTelefono)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Sector)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DireccionFisica)
                 </th>
             <th></th>
         </tr>
@@ -46,13 +56,13 @@
                 @Html.DisplayFor(modelItem => item.PaginaWeb)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Telefono)
+                @Html.DisplayFor(modelItem => item.DireccionFisica)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NúmerodeTelefono)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Sector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DireccionFisica)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |

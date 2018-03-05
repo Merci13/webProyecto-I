@@ -1,0 +1,69 @@
+@model IEnumerable<ProyectoWeb.Models.Support>
+
+@{
+    ViewData["Title"] = "Index";
+        Layout = "_LogeadoAdmin";
+@*
+validacion de la session, si es administrador, se aplica el layout correspondiente
+    if (session=="admin")
+    {
+        Layout = "_LogeadoAdmin";
+    }else{
+        Layout = "_LogeadoUsuario";
+    }
+*@
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DetalleDelProblema)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuienReporto)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EstadoActual)
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DetalleDelProblema)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuienReporto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoActual)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

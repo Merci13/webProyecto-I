@@ -1,7 +1,18 @@
-@model Proyecto.Models.Clientes
+@model ProyectoWeb.Models.Clientes
 
 @{
     ViewData["Title"] = "Create";
+        Layout = "_LogeadoAdmin";
+@*
+validacion de la session, si es administrador, se aplica el layout correspondiente
+    if (session=="admin")
+    {
+        Layout = "_LogeadoAdmin";
+    }else{
+        Layout = "_LogeadoUsuario";
+    }
+*@    
+    
 }
 
 <h2>Create</h2>
@@ -28,19 +39,25 @@
                 <span asp-validation-for="PaginaWeb" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
-                <input asp-for="Telefono" class="form-control" />
-                <span asp-validation-for="Telefono" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sector" class="control-label"></label>
-                <input asp-for="Sector" class="form-control" />
-                <span asp-validation-for="Sector" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="DireccionFisica" class="control-label"></label>
                 <input asp-for="DireccionFisica" class="form-control" />
                 <span asp-validation-for="DireccionFisica" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NúmerodeTelefono" class="control-label"></label>
+                <input asp-for="NúmerodeTelefono" class="form-control" />
+                <span asp-validation-for="NúmerodeTelefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sector" class="control-label"></label>
+                <select asp-for="Sector" class="form-control" >
+                    <option value="Pesquero" selected>Pesquero</option>
+                    <option value="Privado">Privado</option>
+                    <option value="Publico">Publico</option>
+                    <option value="Produccion Pecuaria">Produccion Pecuaria</option>
+                    
+                    </select>
+                <span asp-validation-for="Sector" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />

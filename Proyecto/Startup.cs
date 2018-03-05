@@ -4,12 +4,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Proyecto.Models;
+using ProyectoWeb.Models;
 
-namespace Proyecto
+
+namespace ProyectoWeb
 {
     public class Startup
     {
@@ -23,12 +24,12 @@ namespace Proyecto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-            services.AddMemoryCache();
-            services.AddSession();
-            services.AddDbContext<RegistrarContext>(options =>
-            options.UseSqlite("Data Source=ProyectoUno.db"));
             
+            services.AddMvc();
+             services.AddMemoryCache();//manejo de login
+            services.AddSession();//manejo de sesiones
+            services.AddDbContext<ModeloContext>(options =>
+            options.UseSqlite("Data Source=ModeloContext.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +43,7 @@ namespace Proyecto
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+             app.UseSession();
 
             app.UseStaticFiles();
 

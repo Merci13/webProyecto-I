@@ -1,0 +1,66 @@
+@model ProyectoWeb.Models.Reuniones
+
+@{
+    ViewData["Title"] = "Edit";
+        Layout = "_LogeadoAdmin";
+@*
+validacion de la session, si es administrador, se aplica el layout correspondiente
+    if (session=="admin")
+    {
+        Layout = "_LogeadoAdmin";
+    }else{
+        Layout = "_LogeadoUsuario";
+    }
+*@
+}
+
+<h2>Edit</h2>
+
+<h4>Reuniones</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="TituloDeLaReunion" class="control-label"></label>
+                <input asp-for="TituloDeLaReunion" class="form-control" />
+                <span asp-validation-for="TituloDeLaReunion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fecha" class="control-label"></label>
+                <input asp-for="Fecha" class="form-control" />
+                <span asp-validation-for="Fecha" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsuarioAsignado" class="control-label"></label>
+                <input asp-for="UsuarioAsignado" class="form-control" />
+                <span asp-validation-for="UsuarioAsignado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Virtual" /> @Html.DisplayNameFor(model => model.Virtual)
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="UsuarioID" class="control-label"></label>
+                <select asp-for="UsuarioID" class="form-control" asp-items="ViewBag.UsuarioID"></select>
+                <span asp-validation-for="UsuarioID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

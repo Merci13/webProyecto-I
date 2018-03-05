@@ -1,0 +1,58 @@
+@model ProyectoWeb.Models.Reuniones
+
+@{
+    ViewData["Title"] = "Details";
+        Layout = "_LogeadoAdmin";
+@*
+validacion de la session, si es administrador, se aplica el layout correspondiente
+    if (session=="admin")
+    {
+        Layout = "_LogeadoAdmin";
+    }else{
+        Layout = "_LogeadoUsuario";
+    }
+*@
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reuniones</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TituloDeLaReunion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TituloDeLaReunion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UsuarioAsignado)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UsuarioAsignado)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Virtual)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Virtual)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.ID)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

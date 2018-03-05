@@ -1,0 +1,61 @@
+@model ProyectoWeb.Models.Support
+
+@{
+    ViewData["Title"] = "Delete";
+        Layout = "_LogeadoAdmin";
+@*
+validacion de la session, si es administrador, se aplica el layout correspondiente
+    if (session=="admin")
+    {
+        Layout = "_LogeadoAdmin";
+    }else{
+        Layout = "_LogeadoUsuario";
+    }
+*@
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Support</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Titulo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DetalleDelProblema)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DetalleDelProblema)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.QuienReporto)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.QuienReporto)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoActual)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EstadoActual)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ClienteID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClienteID)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

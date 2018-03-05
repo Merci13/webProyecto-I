@@ -4,9 +4,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Proyecto.Models;
+using ProyectoWeb.Models;
 
-namespace Proyecto.Controllers
+namespace ProyectoWeb.Controllers
 {
     public class HomeController : Controller
     {
@@ -33,5 +33,16 @@ namespace Proyecto.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+          public IActionResult Login()
+        {
+           
+
+
+           return View("Login");
+        }
+
+      
+
     }
 }
